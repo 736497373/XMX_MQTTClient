@@ -1,0 +1,6 @@
+framework module XMX_MQTTClient {
+  umbrella header "XMX_MQTTClient-umbrella.h"
+
+  export *
+  module * { export * }
+}

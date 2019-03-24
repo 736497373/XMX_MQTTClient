@@ -1,0 +1,28 @@
+{
+  "name": "XMX_MQTTClient",
+  "version": "0.1.0",
+  "summary": "A short description of XMX_MQTTClient.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/736497373/XMX_MQTTClient",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "736497373": "736497373@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/736497373/XMX_MQTTClient.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "XMX_MQTTClient/Classes/**/*",
+  "public_header_files": "Pod/Classes/**/*.h",
+  "dependencies": {
+    "MQTTClient": [
+
+    ]
+  }
+}

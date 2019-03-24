@@ -1,0 +1,12 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'XMX_MQTTClient_Example' do
+  pod 'XMX_MQTTClient', :path => '../'
+  target 'XMX_MQTTClient_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

@@ -1,0 +1,30 @@
+PODS:
+  - MQTTClient (0.15.2):
+    - MQTTClient/Core (= 0.15.2)
+  - MQTTClient/Core (0.15.2):
+    - MQTTClient/Manager
+    - MQTTClient/Min
+  - MQTTClient/Manager (0.15.2):
+    - MQTTClient/Min
+  - MQTTClient/Min (0.15.2)
+  - XMX_MQTTClient (0.1.0):
+    - MQTTClient
+
+DEPENDENCIES:
+  - XMX_MQTTClient (from `../`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - MQTTClient
+
+EXTERNAL SOURCES:
+  XMX_MQTTClient:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MQTTClient: 902c7bcac1501595f3d0b15178c7205b40331fb0
+  XMX_MQTTClient: cdb89dda596bedec8f643df26dff438b64a9e5d3
+
+PODFILE CHECKSUM: 6d3053d66309f838d424eed2b41270852e5646ed
+
+COCOAPODS: 1.5.3
