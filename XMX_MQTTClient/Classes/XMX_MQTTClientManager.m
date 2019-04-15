@@ -289,6 +289,14 @@ autoConnectInterval:(NSInteger)autoConnectInterval
     }
 }
 
+
+
+/**
+ 发送消息到topic
+
+ @param topic 订阅
+ @param parameterStr 消息内容字符串
+ */
 - (void)sendTopic:(NSString *)topic parameterStr:(NSString *)parameterStr {
     if (parameterStr && topic) {
         NSData *data =[parameterStr dataUsingEncoding:NSUTF8StringEncoding];

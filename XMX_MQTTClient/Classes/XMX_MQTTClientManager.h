@@ -114,7 +114,13 @@ autoConnectInterval:(NSInteger)autoConnectInterval
 
 
 
-- (void)sendTopic:(NSString *)topic parameter:(NSDictionary *)parameter;
+/**
+ 发送消息到topic
+ 
+ @param topic 订阅
+ @param parameterStr 消息内容字符串
+ */
+- (void)sendTopic:(NSString *)topic parameterStr:(NSString *)parameterStr;
 @end
 
 NS_ASSUME_NONNULL_END
