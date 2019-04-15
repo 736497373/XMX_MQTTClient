@@ -104,6 +104,7 @@ autoConnectInterval:(NSInteger)autoConnectInterval
 - (void)delTopic:(NSString *)topic;
 
 
+
 /**
  清空订阅
  
@@ -111,6 +112,9 @@ autoConnectInterval:(NSInteger)autoConnectInterval
  */
 - (void)clearTopic;
 
+
+
+- (void)sendTopic:(NSString *)topic parameter:(NSDictionary *)parameter;
 @end
 
 NS_ASSUME_NONNULL_END

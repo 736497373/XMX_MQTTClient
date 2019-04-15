@@ -117,7 +117,7 @@ autoConnectInterval:(NSInteger)autoConnectInterval
     self.isAutoConnect=isAutoConnect;
     self.cleanSessionFlag = cleanSessionFlag;
     
-    self.autoConnectInterval = autoConnectInterval ? : 0.3;
+    self.autoConnectInterval = autoConnectInterval ? : 1;
     
     
     [self login];
@@ -287,7 +287,16 @@ autoConnectInterval:(NSInteger)autoConnectInterval
         [self.topicArray removeAllObjects];
         NSLog(@"-----------------MQTT清除所有订阅-----------------");
     }
-    
+}
+
+- (void)sendTopic:(NSString *)topic parameterStr:(NSString *)parameterStr {
+    if (parameterStr && topic) {
+        NSData *data =[parameterStr dataUsingEncoding:NSUTF8StringEncoding];
+        [self.mqttSession publishData:data
+                              onTopic:topic
+                               retain:nil
+                                  qos:(MQTTQosLevelExactlyOnce)];
+    }
 
 }
 
