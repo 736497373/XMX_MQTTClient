@@ -20,19 +20,26 @@
     [super viewDidLoad];
     
     [[XMX_MQTTClientManager shareInstance] bind:self];
+    
 }
 
 - (void)MQTT_messageTopic:(NSString *)topic messageDic:(NSDictionary *)messageDic {
-    
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:messageDic options:0 error:0];
-    NSString *dataStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-
-    
-    self.logTextView.text = [self.logTextView.text stringByAppendingString:[NSString stringWithFormat:@"\n%@",dataStr]];
-    
-    
+    if (messageDic) {
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:messageDic options:0 error:0];
+        NSString *dataStr = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        self.logTextView.text = [self.logTextView.text stringByAppendingString:[NSString stringWithFormat:@"\n%@",dataStr]];
+    }
 }
+
+
+- (void)MQTT_messageTopic:(NSString *)topic messageStr:(NSString *)messageStr {
+    self.logTextView.text = [self.logTextView.text stringByAppendingString:[NSString stringWithFormat:@"\n%@",messageStr]];
+}
+
+
+
+
+
 
 - (IBAction)addTopicButtonAction:(id)sender {
     if (self.topicTextField.text.length > 0) {

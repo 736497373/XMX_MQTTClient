@@ -108,7 +108,6 @@ autoConnectInterval:(NSInteger)autoConnectInterval
 /**
  清空订阅
  
- @param topic 订阅标签
  */
 - (void)clearTopic;
 

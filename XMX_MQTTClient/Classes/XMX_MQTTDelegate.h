@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(void)MQTT_didReceiveServerStatus:(NSDictionary *)status;
 
 -(void)MQTT_messageTopic:(NSString *)topic messageDic:(NSDictionary *)messageDic;
+
+-(void)MQTT_messageTopic:(NSString *)topic messageStr:(NSString *)messageStr;
 @end
 
 NS_ASSUME_NONNULL_END

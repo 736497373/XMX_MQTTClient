@@ -224,17 +224,23 @@ autoConnectInterval:(NSInteger)autoConnectInterval
 - (void)newMessage:(MQTTSession *)session data:(NSData *)data onTopic:(NSString *)topic qos:(MQTTQosLevel)qos retained:(BOOL)retained mid:(unsigned int)mid {
     NSString *jsonStr=[NSString stringWithUTF8String:data.bytes];
     NSLog(@"-----------------MQTT收到消息-----------------\nTopic:%@  \n内容：%@",topic,jsonStr);
-    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    
-    for (id<XMX_MQTTDelegate> delegate in [self.delegates setRepresentation]) {
-        if (delegate && [delegate respondsToSelector:@selector(MQTT_messageTopic:messageDic:)]) {
-            [delegate MQTT_messageTopic:topic messageDic:dic];
+    if ([NSJSONSerialization isValidJSONObject:jsonStr]) {
+        NSLog(@"能转换JSON");
+          NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+            for (id<XMX_MQTTDelegate> delegate in [self.delegates setRepresentation]) {
+                if (delegate && [delegate respondsToSelector:@selector(MQTT_messageTopic:messageDic:)]) {
+                    [delegate MQTT_messageTopic:topic messageDic:dic];
+                }
+            }
+    }else {
+        NSLog(@"不能转换JSON");
+        for (id<XMX_MQTTDelegate> delegate in [self.delegates setRepresentation]) {
+            if (delegate && [delegate respondsToSelector:@selector(MQTT_messageTopic:messageStr:)]) {
+                [delegate MQTT_messageTopic:topic messageStr:jsonStr];
+            }
         }
     }
 }
-
-
-
 
 
 - (void)bind:(id<XMX_MQTTDelegate>)delegate {
